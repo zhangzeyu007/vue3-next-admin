@@ -18,6 +18,12 @@
       "node",
       "webpack-env",
     ],
+    "baseUrl": ".",
+     "paths": {  // vue3使用别名设置
+      "@/*": [
+        "src/*"
+      ]
+  }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }],

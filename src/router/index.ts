@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-07-30 13:10:13
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-07-31 11:19:13
+ * @LastEditTime: 2022-07-31 14:00:21
  * @FilePath: \vue3-next-admin\src\router\index.ts
  */
 
@@ -28,7 +28,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
 		children: [
 			{
 				path: '/redirect/:path(.*)',
-				component: () => import('../view/redirect/Index.vue')
+				component: () => import('@/view/redirect/Index.vue')
 			}
 		]
 	},
