@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-07-31 13:48:54
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-08-07 13:46:57
+ * @LastEditTime: 2022-08-07 14:03:30
  * @FilePath: \vue3-next-admin\src\store\modules\user\actions.ts
  */
 import { ActionTree, ActionContext } from "vuex";
@@ -25,10 +25,10 @@ export interface Actions {
 
 
 export const actions: ActionTree<UserState, RootState> & Actions = {
+	async [UserActionTypes.ACTION_LOGIN]({ commit }: AugmentedActionContext, userInfo: { username: string, password: string }) {
+		let { username, password } = userInfo;
+		username = username.trim()
+		
+	}
 
-
-
-
-
-	
 }
