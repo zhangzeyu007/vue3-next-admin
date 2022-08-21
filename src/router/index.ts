@@ -3,22 +3,21 @@
  * @Author: 张泽雨
  * @Date: 2022-07-30 13:10:13
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-07-31 14:00:21
+ * @LastEditTime: 2022-08-21 18:35:31
  * @FilePath: \vue3-next-admin\src\router\index.ts
  */
 
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import Layout from '../layout/Index.vue'
 
-// const constantFiles = import.meta.glob('./constantModules/**/*.ts')
-const constantFiles: any = import.meta.globEager('./constantModules/**/*.ts')
+const constantFiles = require.context('./constantModules', true, /\.ts$/)
+
 let constantModules: Array<RouteRecordRaw> = []
-
-Object.keys(constantFiles).forEach((key) => {	
+constantFiles.keys().forEach((key) => {
+	console.log(constantFiles(key))
 	if (key === './index.ts') return
-	constantModules = constantModules.concat(...constantFiles[key].default)
+	constantModules = constantModules.concat(constantFiles(key).default)
 })
-
 
 export const constantRoutes: Array<RouteRecordRaw> = [
 	{
