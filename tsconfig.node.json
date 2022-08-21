@@ -2,8 +2,15 @@
   "compilerOptions": {
     "composite": true,
     "module": "ESNext",
+    "strict": true,
+    "jsx": "preserve",
     "moduleResolution": "Node",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "importHelpers": true,
   },
-  "include": ["vite.config.ts"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.vue",
+  ],
+  "exclude": ["node_modules"]
 }

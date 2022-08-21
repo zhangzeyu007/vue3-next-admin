@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-08-21 16:42:50
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-08-21 18:04:49
+ * @LastEditTime: 2022-08-21 20:30:20
  * @FilePath: \vue3-next-admin\vue.config.js
  */
 const path = require('path')
@@ -53,7 +53,7 @@ module.exports = {
       },
       plugins: [
         new WebpackBar({
-          name: "vue3-ts-composition-admin-template",
+          name: "vue3-next-admin",
         }),
       ],
     };

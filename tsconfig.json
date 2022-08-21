@@ -14,18 +14,13 @@
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
-    "types": [
-      "node",
-      "webpack-env",
-    ],
+    "types": ["node", "webpack-env"],
     "baseUrl": ".",
-     "paths": {  // vue3使用别名设置
-      "@/*": [
-        "src/*"
-      ]
-  }
+    "paths": {
+      // vue3使用别名设置
+      "@/*": ["src/*"]
+    },
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [{ "path": "./tsconfig.node.json" }],
-  
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }
