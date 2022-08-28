@@ -3,16 +3,19 @@
  * @Author: 张泽雨
  * @Date: 2022-07-30 13:50:39
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-08-21 18:33:58
+ * @LastEditTime: 2022-08-28 12:49:37
  * @FilePath: \vue3-next-admin\src\view\login\Index.vue
 -->
+
+
 <template>
   <div class="login-container">
     <video poster="@/assets/images/login/video-cover.jpeg" loop autoplay muted>
       <source src="@/assets/images/login/night.mp4" />
-    </video>
+    </video> 
   </div>
 </template>
+
 
 <script lang="ts">
 import { defineComponent } from "vue";

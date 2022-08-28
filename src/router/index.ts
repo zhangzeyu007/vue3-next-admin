@@ -3,9 +3,10 @@
  * @Author: 张泽雨
  * @Date: 2022-07-30 13:10:13
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-08-21 21:21:38
+ * @LastEditTime: 2022-08-28 12:54:01
  * @FilePath: \vue3-next-admin\src\router\index.ts
  */
+
 
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'
@@ -33,6 +34,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
 	},
 	...constantModules
 ]
+
 
 const router = createRouter({
 	history: createWebHashHistory(),
