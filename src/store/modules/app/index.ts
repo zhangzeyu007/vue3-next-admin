@@ -2,8 +2,8 @@
  * @Description: app moudle
  * @Author: ZY
  * @Date: 2020-12-23 10:25:37
- * @LastEditors: ZY
- * @LastEditTime: 2020-12-23 11:51:40
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-08-28 18:00:09
  */
 import {
   Store as VuexStore,
@@ -19,7 +19,7 @@ import { mutations, Mutations } from './mutations'
 import { actions, Actions } from './actions'
 import type { AppState } from './state'
 
-export { AppState }
+// export { AppState }
 
 export type AppStore<S = AppState> = Omit<VuexStore<S>, 'getters' | 'commit' | 'dispatch'>
 & {

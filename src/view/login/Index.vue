@@ -3,26 +3,116 @@
  * @Author: 张泽雨
  * @Date: 2022-07-30 13:50:39
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-08-28 12:49:37
+ * @LastEditTime: 2022-08-28 16:53:05
  * @FilePath: \vue3-next-admin\src\view\login\Index.vue
 -->
-
 
 <template>
   <div class="login-container">
     <video poster="@/assets/images/login/video-cover.jpeg" loop autoplay muted>
       <source src="@/assets/images/login/night.mp4" />
-    </video> 
+    </video>
+    <el-form
+      ref="loginFormRef"
+      :model="loginForm"
+      :rules="loginRules"
+      class="login-form"
+      autocomplete="on"
+      label-position="left"
+    >
+      <div class="title-container">
+        <h3 class="title">
+          {{ t("login.title") }}
+        </h3>
+        <LangSelect :isWhite="true" class="set-language" />
+      </div>
+      <el-form-item prop="username">
+        <span class="svg-container">
+          <i class="el-icon-user" />
+        </span>
+        <el-input
+          ref="userNameRef"
+          v-model="loginForm.username"
+          :placeholder="t('login.username')"
+          name="username"
+          type="text"
+          tabindex="1"
+          autocomplete="on"
+        />
+      </el-form-item>
+    </el-form>
   </div>
 </template>
 
-
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref, reactive, toRefs, nextTick } from "vue";
+import { isValidUsername } from "@/utils/validate";
+import { useI18n } from "vue-i18n";
 
 export default defineComponent({
+  components: {},
   setup() {
-    // const userNameRef = ref();
+    const userNameRef = ref(null);
+    const passwordRef = ref(null);
+    const loginFormRef = ref(null);
+    const { t } = useI18n();
+
+    const state = reactive({
+      loginForm: {
+        username: "admin",
+        password: "111111",
+      },
+      loginRules: {
+        username: [{ validator: userNameRef, trigger: "blur" }],
+        password: [{ validator: passwordRef, trigger: "blur" }],
+      },
+      passwordType: "password",
+      loading: false,
+      showDialog: false,
+      capsTooltip: false,
+      redirect: "",
+      otherQuery: {},
+    });
+
+    const methods = reactive({
+      validateUsername: (rule: any, value: string, callback: Function) => {
+        if (!isValidUsername(value)) {
+          callback(new Error("Please enter the correct user name"));
+        } else {
+          callback();
+        }
+      },
+      validatePassword: (rule: any, value: string, callback: Function) => {
+        if (value.length < 6) {
+          callback(new Error("The password can not be less than 6 digits"));
+        } else {
+          callback();
+        }
+      },
+      checkCapslock: (e: KeyboardEvent) => {
+        const { key } = e;
+        state.capsTooltip =
+          key !== null && key.length === 1 && key >= "A" && key <= "Z";
+      },
+      showPwd: () => {
+        if (state.passwordType === "password") {
+          state.passwordType = "";
+        } else {
+          state.passwordType = "password";
+        }
+        nextTick(() => {
+          (passwordRef.value as any).focus();
+        });
+      },
+    });
+
+    return {
+      userNameRef,
+      passwordRef,
+      loginFormRef,
+      ...toRefs(state),
+      ...toRefs(methods),
+    };
   },
 });
 </script>
@@ -61,7 +151,6 @@ export default defineComponent({
       }
     }
   }
-
   .el-form-item {
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(0, 0, 0, 0.1);

@@ -2,11 +2,11 @@
  * @Description:
  * @Autor: WJM
  * @Date: 2021-01-16 15:49:20
- * @LastEditors: WJM
- * @LastEditTime: 2021-01-16 16:01:31
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-08-28 18:13:24
  */
 import { VuexModule, Module, Mutation, Action, getModule } from 'vuex-module-decorators'
-import { getSidebarStatus, getSize, setSidebarStatus, setLanguage, setSize } from '@/utils/cookies'
+import { getSize,setLanguage, setSize } from '@/utils/cookies'
 import { getLocale } from '@/locales'
 import { store } from '@/store'
 
@@ -17,69 +17,15 @@ export enum DeviceType {
 
 export interface AppState {
   device: DeviceType
-  sidebar: {
-    opened: boolean
-    withoutAnimation: boolean
-  }
   language: string
   size: string
 }
 
 @Module({ dynamic: true, store, name: 'app' })
 class App extends VuexModule implements AppState {
-  public sidebar = {
-    opened: getSidebarStatus() !== 'closed',
-    withoutAnimation: false
-  }
-
   public device = DeviceType.Desktop
   public language = getLocale()
   public size = getSize() || 'medium'
-
-  @Mutation
-  private TOGGLE_SIDEBAR(withoutAnimation: boolean) {
-    this.sidebar.opened = !this.sidebar.opened
-    this.sidebar.withoutAnimation = withoutAnimation
-    if (this.sidebar.opened) {
-      setSidebarStatus('opened')
-    } else {
-      setSidebarStatus('closed')
-    }
-  }
-
-  @Mutation
-  private CLOSE_SIDEBAR(withoutAnimation: boolean) {
-    this.sidebar.opened = false
-    this.sidebar.withoutAnimation = withoutAnimation
-    setSidebarStatus('closed')
-  }
-
-  @Mutation
-  private TOGGLE_DEVICE(device: DeviceType) {
-    this.device = device
-  }
-
-  @Mutation
-  private SET_LANGUAGE(language: string) {
-    this.language = language
-    setLanguage(this.language)
-  }
-
-  @Mutation
-  private SET_SIZE(size: string) {
-    this.size = size
-    setSize(this.size)
-  }
-
-  @Action
-  public ToggleSideBar(withoutAnimation: boolean) {
-    this.TOGGLE_SIDEBAR(withoutAnimation)
-  }
-
-  @Action
-  public CloseSideBar(withoutAnimation: boolean) {
-    this.CLOSE_SIDEBAR(withoutAnimation)
-  }
 
   @Action
   public ToggleDevice(device: DeviceType) {
