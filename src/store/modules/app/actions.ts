@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-23 10:25:37
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-08-28 18:06:04
+ * @LastEditTime: 2022-08-28 20:38:03
  */
 import { ActionTree, ActionContext } from 'vuex'
 
@@ -13,7 +13,6 @@ import { AppState, DeviceType } from './state'
 import { Mutations } from './mutations'
 import { AppMutationTypes } from './mutation-types'
 import { AppActionTypes } from './action-types'
-
 
 type AugmentedActionContext = {
   commit<K extends keyof Mutations>(

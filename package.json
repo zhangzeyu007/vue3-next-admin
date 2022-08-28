@@ -1,7 +1,7 @@
 {
   "name": "vue3-next-admin",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "scripts": {
     "dev": "cross-env NODE_ENV=development dotenv -e .env.dev.serve vue-cli-service serve",
     "build:dev": "cross-env NODE_ENV=production  dotenv -e .env.dev.build vue-cli-service build",
@@ -10,16 +10,17 @@
   "dependencies": {
     "axios": "^0.27.2",
     "crypto-ts": "^1.0.2",
-    "element-plus": "^2.2.11",
+    "element-plus": "^2.2.15",
     "js-cookie": "^3.0.1",
     "nprogress": "^0.2.0",
     "vue": "^3.0.5",
     "vue-class-component": "^8.0.0-rc.1",
     "vue-i18n": "^9.0.0",
+    "vue-property-decorator": "^9.1.2",
     "vue-router": "4.0",
     "vuex": "^4.0.2",
     "vuex-module-decorators": "^2.0.0",
-    "vuex-persistedstate": "^4.1.0"
+    "vuex-persistedstate": "^4.0.0-beta.1"
   },
   "devDependencies": {
     "@types/jest": "^24.0.19",

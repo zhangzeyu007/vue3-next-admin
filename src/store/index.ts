@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-07-31 13:33:09
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-08-28 17:37:37
+ * @LastEditTime: 2022-08-28 20:45:14
  * @FilePath: \vue3-next-admin\src\store\index.ts
  */
 import { createStore, createLogger } from 'vuex'

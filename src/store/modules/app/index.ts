@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-23 10:25:37
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-08-28 18:00:09
+ * @LastEditTime: 2022-08-28 20:54:35
  */
 import {
   Store as VuexStore,
@@ -19,7 +19,7 @@ import { mutations, Mutations } from './mutations'
 import { actions, Actions } from './actions'
 import type { AppState } from './state'
 
-// export { AppState }
+export type { AppState } from './state'
 
 export type AppStore<S = AppState> = Omit<VuexStore<S>, 'getters' | 'commit' | 'dispatch'>
 & {
