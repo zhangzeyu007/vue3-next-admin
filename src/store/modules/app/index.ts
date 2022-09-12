@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-23 10:25:37
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-08-28 20:54:35
+ * @LastEditTime: 2022-09-04 14:02:40
  */
 import {
   Store as VuexStore,
@@ -35,6 +35,8 @@ export type AppStore<S = AppState> = Omit<VuexStore<S>, 'getters' | 'commit' | '
     options?: DispatchOptions
   ): ReturnType<Actions[K]>
 };
+
+
 export const store: Module<AppState, RootState> = {
   state,
   mutations,

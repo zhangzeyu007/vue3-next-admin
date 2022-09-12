@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-08-28 16:58:20
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-08-28 22:41:59
+ * @LastEditTime: 2022-09-04 21:22:50
  * @FilePath: \vue3-next-admin\src\plugins\element.ts
  */
 /*
@@ -45,9 +45,11 @@
  *  3.放开babel.config 注释
  */
 import ElementPlus from 'element-plus'
-// import 'element-plus/lib/theme-chalk/index.css'
+import 'element-plus/lib/theme-chalk/index.css'
 import i18n from '@/locales'
 import { useStore } from '@/store'
+
+
 export default function loadComponent(app: any) {
   app.use(ElementPlus, { size: useStore().state.app.size, i18n: i18n.global.t })
   // app.use(ElButton)

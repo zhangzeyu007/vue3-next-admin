@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-07-30 13:50:39
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-08-28 16:53:05
+ * @LastEditTime: 2022-09-04 21:05:22
  * @FilePath: \vue3-next-admin\src\view\login\Index.vue
 -->
 
@@ -12,6 +12,7 @@
     <video poster="@/assets/images/login/video-cover.jpeg" loop autoplay muted>
       <source src="@/assets/images/login/night.mp4" />
     </video>
+
     <el-form
       ref="loginFormRef"
       :model="loginForm"
@@ -26,6 +27,7 @@
         </h3>
         <LangSelect :isWhite="true" class="set-language" />
       </div>
+      
       <el-form-item prop="username">
         <span class="svg-container">
           <i class="el-icon-user" />
@@ -40,6 +42,63 @@
           autocomplete="on"
         />
       </el-form-item>
+      <el-tooltip
+        v-model="capsTooltip"
+        content="Caps lock is On"
+        placement="right"
+        manual
+      >
+        <el-form-item prop="password">
+          <span class="svg-container">
+            <i class="el-icon-lock" />
+          </span>
+          <el-input
+            :key="passwordType"
+            ref="passwordRef"
+            v-model="loginForm.password"
+            :type="passwordType"
+            :placeholder="t('login.password')"
+            name="password"
+            tabindex="2"
+            autocomplete="on"
+            @keyup="checkCapslock"
+            @blur="capsTooltip = false"
+            @keyup.enter="handleLogin"
+          />
+          <span class="show-pwd" @click="showPwd">
+            <svg-icon
+              :name="passwordType === 'password' ? 'eye-off' : 'eye-on'"
+            />
+          </span>
+        </el-form-item>
+      </el-tooltip>
+      <el-button
+        :loading="loading"
+        type="primary"
+        style="width: 100%; margin-bottom: 30px"
+        @click.prevent="handleLogin"
+      >
+        {{ t("login.logIn") }}
+      </el-button>
+
+      <div style="position: relative">
+        <div class="tips">
+          <span>{{ t("login.username") }} : admin </span>
+          <span>{{ t("login.password") }} : {{ t("login.any") }} </span>
+        </div>
+        <div class="tips">
+          <span>{{ t("login.username") }} : editor </span>
+          <span>{{ t("login.password") }} : {{ t("login.any") }} </span>
+        </div>
+
+        <el-button
+          class="thirdparty-button"
+          type="primary"
+          @click="showDialog = true"
+        >
+          {{ t("login.thirdparty") }}
+        </el-button>
+      </div>
     </el-form>
   </div>
 </template>
@@ -48,9 +107,12 @@
 import { defineComponent, ref, reactive, toRefs, nextTick } from "vue";
 import { isValidUsername } from "@/utils/validate";
 import { useI18n } from "vue-i18n";
+import LangSelect from "@/components/lang_select/Index.vue";
 
 export default defineComponent({
-  components: {},
+  components: {
+    LangSelect,
+  },
   setup() {
     const userNameRef = ref(null);
     const passwordRef = ref(null);
@@ -94,6 +156,7 @@ export default defineComponent({
         state.capsTooltip =
           key !== null && key.length === 1 && key >= "A" && key <= "Z";
       },
+      handleLogin: () => {},
       showPwd: () => {
         if (state.passwordType === "password") {
           state.passwordType = "";
@@ -112,6 +175,7 @@ export default defineComponent({
       loginFormRef,
       ...toRefs(state),
       ...toRefs(methods),
+      t,
     };
   },
 });
@@ -168,7 +232,6 @@ export default defineComponent({
   // background-color: $loginBg;
   video {
     position: absolute;
-    /* Vertical and Horizontal center*/
     top: 0;
     left: 0;
     right: 0;
