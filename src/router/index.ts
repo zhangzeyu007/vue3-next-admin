@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-07-30 13:10:13
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-08-28 12:54:01
+ * @LastEditTime: 2022-09-12 14:41:31
  * @FilePath: \vue3-next-admin\src\router\index.ts
  */
 
@@ -20,6 +20,14 @@ constantFiles.keys().forEach((key) => {
 	constantModules = constantModules.concat(constantFiles(key).default)
 })
 
+const asyncFiles = require.context('./permissionModules', true, /\.ts$/)
+let permissionModules: Array<RouteRecordRaw> = []
+asyncFiles.keys().forEach((key) => {
+	if (key === './index.ts') return
+	permissionModules = permissionModules.concat(asyncFiles(key).default)
+})
+
+
 export const constantRoutes: Array<RouteRecordRaw> = [
 	{
 		path: '/redirect',
@@ -35,6 +43,10 @@ export const constantRoutes: Array<RouteRecordRaw> = [
 	...constantModules
 ]
 
+
+export const asyncRoutes: Array<RouteRecordRaw> = [
+	...permissionModules
+]
 
 const router = createRouter({
 	history: createWebHashHistory(),
