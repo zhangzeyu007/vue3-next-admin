@@ -3,39 +3,31 @@
  * @Author: 张泽雨
  * @Date: 2022-08-28 16:58:20
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-09-04 21:22:50
+ * @LastEditTime: 2022-09-18 13:18:49
  * @FilePath: \vue3-next-admin\src\plugins\element.ts
  */
-/*
- * @Description: element 组件
- * @Author: ZY
- * @Date: 2020-12-25 08:45:49
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-26 13:25:55
- */
 
-// import {
-//   ElButton,
-//   ElSelect,
-//   ElBreadcrumb,
-//   ElBreadcrumbItem,
-//   ElIcon,
-//   ElDropdown,
-//   ElDropdownMenu,
-//   ElDropdownItem,
-//   ElPopover,
-//   ElMessage,
-//   ElForm,
-//   ElFormItem,
-//   ElLoading,
-//   ElInput,
-//   ElTooltip,
-//   ElDialog,
-//   ElScrollbar,
-//   ElMenu,
-//   ElMenuItem,
-//   ElSubmenu
-// } from 'element-plus'
+import {
+  ElButton,
+  ElSelect,
+  ElBreadcrumb,
+  ElBreadcrumbItem,
+  ElIcon,
+  ElDropdown,
+  ElDropdownMenu,
+  ElDropdownItem,
+  ElPopover,
+  ElMessage,
+  ElForm,
+  ElFormItem,
+  ElLoading,
+  ElInput,
+  ElTooltip,
+  ElDialog,
+  ElScrollbar,
+  ElMenu,
+  ElMenuItem
+} from 'element-plus'
 
 /**
  *  系统的全局设置size，全部加载方便设置。
@@ -45,7 +37,7 @@
  *  3.放开babel.config 注释
  */
 import ElementPlus from 'element-plus'
-import 'element-plus/lib/theme-chalk/index.css'
+import 'element-plus/dist/index.css'
 import i18n from '@/locales'
 import { useStore } from '@/store'
 

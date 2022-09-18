@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-18 15:23:57
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-08-28 15:51:37
+ * @LastEditTime: 2022-09-12 15:31:54
  */
 import { createI18n } from 'vue-i18n' // import from runtime only
 import { getLanguage } from '@/utils/cookies'
@@ -28,6 +28,7 @@ const messages = {
 
 export const getLocale = () => {
   const cookieLanguage = getLanguage()
+  
   if (cookieLanguage) {
     return cookieLanguage
   }

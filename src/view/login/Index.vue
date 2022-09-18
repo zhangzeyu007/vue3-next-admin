@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-07-30 13:50:39
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-09-04 21:05:22
+ * @LastEditTime: 2022-09-18 14:06:03
  * @FilePath: \vue3-next-admin\src\view\login\Index.vue
 -->
 
@@ -27,7 +27,7 @@
         </h3>
         <LangSelect :isWhite="true" class="set-language" />
       </div>
-      
+
       <el-form-item prop="username">
         <span class="svg-container">
           <i class="el-icon-user" />
@@ -95,6 +95,7 @@
           class="thirdparty-button"
           type="primary"
           @click="showDialog = true"
+         
         >
           {{ t("login.thirdparty") }}
         </el-button>
@@ -122,7 +123,7 @@ export default defineComponent({
     const state = reactive({
       loginForm: {
         username: "admin",
-        password: "111111",
+        password: "zhangzeyu",
       },
       loginRules: {
         username: [{ validator: userNameRef, trigger: "blur" }],
@@ -195,9 +196,9 @@ export default defineComponent({
 
 .login-container {
   .el-input {
-    display: inline-block;
+    // display: inline-block;
     height: 47px;
-    width: 85%;
+    width: 90%;
 
     input {
       height: 47px;
@@ -205,13 +206,13 @@ export default defineComponent({
       border: 0px;
       border-radius: 0px;
       padding: 12px 5px 12px 15px;
-      color: $lightGray;
-      caret-color: $loginCursorColor;
+      // color: $lightGray;
+      // caret-color: $loginCursorColor;
       -webkit-appearance: none;
 
       &:-webkit-autofill {
-        box-shadow: 0 0 0px 1000px $loginBg inset !important;
-        -webkit-text-fill-color: #fff !important;
+        // box-shadow: 0 0 0px 1000px $loginBg inset !important;
+        // -webkit-text-fill-color: #fff !important;
       }
     }
   }
@@ -221,6 +222,12 @@ export default defineComponent({
     border-radius: 5px;
     color: #454545;
   }
+  .el-input__wrapper {
+    background-color: transparent !important;
+  }
+  .el-button {
+    height: 40px;
+  }
 }
 </style>
 
@@ -229,7 +236,7 @@ export default defineComponent({
   height: 100%;
   width: 100%;
   overflow: hidden;
-  // background-color: $loginBg;
+  background-color: $loginBg;
   video {
     position: absolute;
     top: 0;

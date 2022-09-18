@@ -3,20 +3,14 @@
  * @Author: 张泽雨
  * @Date: 2022-09-04 20:47:10
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-09-12 14:34:02
+ * @LastEditTime: 2022-09-18 13:06:34
  * @FilePath: \vue3-next-admin\src\components\lang_select\Index.vue
 -->
+
 <template>
   <div>
     <el-dropdown>
-      <svg
-        class="icon"
-        aria-hidden="true"
-        font-size="45px"
-        :class="{ 'svg-color': isWhite }"
-      >
-        <use xlink:href="#iconzhongyingwen" />
-      </svg>
+     中英文
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item
@@ -51,7 +45,7 @@ export default defineComponent({
       default: false,
     },
   },
-  
+
   setup() {
     const store = useStore();
     const { locale } = useI18n();
@@ -73,7 +67,7 @@ export default defineComponent({
     const language = computed(() => {
       return store.state.app.language;
     });
-    
+
     return {
       ...toRefs(state),
       language,

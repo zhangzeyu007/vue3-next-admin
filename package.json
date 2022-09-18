@@ -10,7 +10,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "crypto-ts": "^1.0.2",
-    "element-plus": "^1.0.2-beta.35",
+    "element-plus": "^2.2.17",
     "js-cookie": "^3.0.1",
     "lodash": "^4.17.20",
     "normalize.css": "^8.0.1",

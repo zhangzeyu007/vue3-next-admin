@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-08-28 15:43:31
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-08-28 15:46:41
+ * @LastEditTime: 2022-09-18 12:15:43
  * @FilePath: \vue3-next-admin\src\plugins\index.ts
  */
 
