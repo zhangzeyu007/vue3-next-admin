@@ -3,11 +3,27 @@
  * @Author: 张泽雨
  * @Date: 2022-07-30 13:35:04
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-09-25 12:07:01
+ * @LastEditTime: 2022-09-25 14:17:06
  * @FilePath: \vue3-next-admin\src\layout\Index.vue
 -->
 <template>
-  <div :class="classObj" class="app-wrapper"></div>
+  <div :class="classObj" class="app-wrapper">
+    <div
+      v-if="classObj.mobile && sidebar.opened"
+      class="drawer-bg"
+      @click="handleClickOutside"
+    />
+    <div :class="{ hasTagsView: showTagsView }" class="main-container">
+      <div :class="{ 'fixed-header': fixedHeader }">
+        <!-- <Navbar />
+        <TagsView v-if="showTagsView" /> -->
+      </div>
+      <AppMain />
+      <!-- <RightPanel v-if="showSettings"> -->
+        <!-- <Settings /> -->
+      <!-- </RightPanel> -->
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -25,14 +41,20 @@ import { useStore } from "@/store";
 import { AppActionTypes } from "@/store/modules/app/action-types";
 import resize from "./resize";
 import { DeviceType } from "@/store/modules/app/state";
-//
+import { AppMain } from "./components";
+
 export default defineComponent({
   name: "Layout",
+  components: {
+    AppMain,
+  },
   setup() {
     const { t } = useI18n();
     const store = useStore();
     const state = reactive({
-      handleClickOutside: () => {},
+      handleClickOutside: () => {
+        store.dispatch(AppActionTypes.ACTION_CLOSE_SIDEBAR, false);
+      },
     });
     const {
       sidebar,
@@ -42,6 +64,7 @@ export default defineComponent({
       removeEventListenerResize,
       watchRouter,
     } = resize();
+
     const classObj = computed(() => {
       return {
         hideSidebar: !sidebar.value.opened,
@@ -50,13 +73,24 @@ export default defineComponent({
         mobile: device.value === DeviceType.Mobile,
       };
     });
+
     const showSettings = computed(() => {
       return store.state.settings.showSettings;
+    });
+    const showTagsView = computed(() => {
+      return store.state.settings.showTagsView;
+    });
+    const fixedHeader = computed(() => {
+      return store.state.settings.fixedHeader;
     });
 
     return {
       t,
       classObj,
+      sidebar,
+      showSettings,
+      showTagsView,
+      fixedHeader,
       ...toRefs(state),
     };
   },
