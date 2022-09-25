@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-07-30 13:35:04
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-09-25 11:37:35
+ * @LastEditTime: 2022-09-25 12:07:01
  * @FilePath: \vue3-next-admin\src\layout\Index.vue
 -->
 <template>
@@ -23,16 +23,35 @@ import {
 import { useI18n } from "vue-i18n";
 import { useStore } from "@/store";
 import { AppActionTypes } from "@/store/modules/app/action-types";
-// book
+import resize from "./resize";
+import { DeviceType } from "@/store/modules/app/state";
+//
 export default defineComponent({
   name: "Layout",
   setup() {
     const { t } = useI18n();
+    const store = useStore();
     const state = reactive({
       handleClickOutside: () => {},
     });
+    const {
+      sidebar,
+      device,
+      addEventListenerOnResize,
+      resizeMounted,
+      removeEventListenerResize,
+      watchRouter,
+    } = resize();
     const classObj = computed(() => {
-      return {};
+      return {
+        hideSidebar: !sidebar.value.opened,
+        openSidebar: sidebar.value.opened,
+        withoutAnimation: sidebar.value.withoutAnimation,
+        mobile: device.value === DeviceType.Mobile,
+      };
+    });
+    const showSettings = computed(() => {
+      return store.state.settings.showSettings;
     });
 
     return {
