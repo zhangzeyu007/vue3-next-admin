@@ -1,0 +1,20 @@
+/*
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2022-09-25 12:42:13
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-09-25 12:47:17
+ * @FilePath: \vue3-next-admin\src\store\modules\tagsview\mutation-types.ts
+ */
+
+export enum TagsMutationTypes {
+  ADD_VISITED_VIEW = 'ADD_VISITED_VIEW',
+  ADD_CACHED_VIEW = 'ADD_CACHED_VIEW',
+  DEL_VISITED_VIEW = 'DEL_VISITED_VIEW',
+  DEL_CACHED_VIEW = 'DEL_CACHED_VIEW',
+  DEL_OTHERS_VISITED_VIEWS = 'DEL_OTHERS_VISITED_VIEWS',
+  DEL_OTHERS_CACHED_VIEWS = 'DEL_OTHERS_CACHED_VIEWS',
+  DEL_ALL_VISITED_VIEWS = 'DEL_ALL_VISITED_VIEWS',
+  DEL_ALL_CACHED_VIEWS = 'DEL_ALL_CACHED_VIEWS',
+  UPDATE_VISITED_VIEW = 'UPDATE_VISITED_VIEW',
+}
