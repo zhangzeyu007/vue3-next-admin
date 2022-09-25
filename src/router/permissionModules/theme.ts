@@ -3,16 +3,10 @@
  * @Author: 张泽雨
  * @Date: 2022-09-12 14:40:08
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-09-12 14:48:47
+ * @LastEditTime: 2022-09-25 10:34:21
  * @FilePath: \vue3-next-admin\src\router\permissionModules\theme.ts
  */
-/*
- * @Description: 换肤
- * @Author: scy
- * @Date: 2021-01-21 20:13:03
- * @LastEditors: scy
- * @LastEditTime: 2021-01-21 21:24:27
- */
+
 import { RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'
 
@@ -34,5 +28,6 @@ const ThemeRouter: Array<RouteRecordRaw> = [
     ]
   }
 ]
+
 
 export default ThemeRouter

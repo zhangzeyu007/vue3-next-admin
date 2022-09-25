@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-23 10:25:37
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-08-28 20:38:03
+ * @LastEditTime: 2022-09-25 11:51:08
  */
 import { ActionTree, ActionContext } from 'vuex'
 
@@ -34,16 +34,26 @@ export interface Actions {
     { commit }: AugmentedActionContext,
     size: string
   ): void
+  [AppActionTypes.ACTION_CLOSE_SIDEBAR](
+    { commit }: AugmentedActionContext,
+    withoutAnimation: boolean
+  ): void
 }
 
 export const actions: ActionTree<AppState, RootState> & Actions = {
   [AppActionTypes.ACTION_TOGGLE_DEVICE]({ commit }, device: DeviceType) {
     commit(AppMutationTypes.TOGGLE_DEVICE, device)
   },
+  
   [AppActionTypes.ACTION_SET_LANGUAGE]({ commit }, language: string) {
     commit(AppMutationTypes.SET_LANGUAGE, language)
   },
+
   [AppActionTypes.ACTION_SET_SIZE]({ commit }, size: string) {
     commit(AppMutationTypes.SET_SIZE, size)
-  }
+  },
+
+  [AppActionTypes.ACTION_CLOSE_SIDEBAR]({ commit }, withoutAnimation: boolean) {
+    commit(AppMutationTypes.CLOSE_SIDEBAR, withoutAnimation)
+  },
 }

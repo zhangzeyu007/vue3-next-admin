@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-07-30 13:50:39
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-09-18 14:06:03
+ * @LastEditTime: 2022-09-18 14:17:26
  * @FilePath: \vue3-next-admin\src\view\login\Index.vue
 -->
 
@@ -12,7 +12,6 @@
     <video poster="@/assets/images/login/video-cover.jpeg" loop autoplay muted>
       <source src="@/assets/images/login/night.mp4" />
     </video>
-
     <el-form
       ref="loginFormRef"
       :model="loginForm"
@@ -206,13 +205,13 @@ export default defineComponent({
       border: 0px;
       border-radius: 0px;
       padding: 12px 5px 12px 15px;
-      // color: $lightGray;
-      // caret-color: $loginCursorColor;
+      color: $lightGray;
+      caret-color: $loginCursorColor;
       -webkit-appearance: none;
 
       &:-webkit-autofill {
-        // box-shadow: 0 0 0px 1000px $loginBg inset !important;
-        // -webkit-text-fill-color: #fff !important;
+        box-shadow: 0 0 0px 1000px $loginBg inset !important;
+        -webkit-text-fill-color: #fff !important;
       }
     }
   }
@@ -236,7 +235,7 @@ export default defineComponent({
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background-color: $loginBg;
+  // background-color: $loginBg;
   video {
     position: absolute;
     top: 0;

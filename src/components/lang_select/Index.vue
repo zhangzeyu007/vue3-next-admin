@@ -3,14 +3,14 @@
  * @Author: 张泽雨
  * @Date: 2022-09-04 20:47:10
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-09-18 13:06:34
+ * @LastEditTime: 2022-09-18 14:19:47
  * @FilePath: \vue3-next-admin\src\components\lang_select\Index.vue
 -->
 
 <template>
   <div>
     <el-dropdown>
-     中英文
+     中英文切换
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item
@@ -58,7 +58,7 @@ export default defineComponent({
         locale.value = lang;
         store.dispatch(AppActionTypes.ACTION_SET_LANGUAGE, lang);
         ElMessage({
-          message: "Switch Language Success",
+          message: "切换中英文成功",
           type: "success",
         });
       },
