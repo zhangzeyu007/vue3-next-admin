@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-07-30 13:35:04
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-09-25 14:17:06
+ * @LastEditTime: 2022-09-25 19:30:13
  * @FilePath: \vue3-next-admin\src\layout\Index.vue
 -->
 <template>
@@ -48,6 +48,7 @@ export default defineComponent({
   components: {
     AppMain,
   },
+  
   setup() {
     const { t } = useI18n();
     const store = useStore();
@@ -77,9 +78,11 @@ export default defineComponent({
     const showSettings = computed(() => {
       return store.state.settings.showSettings;
     });
+    
     const showTagsView = computed(() => {
       return store.state.settings.showTagsView;
     });
+    
     const fixedHeader = computed(() => {
       return store.state.settings.fixedHeader;
     });
