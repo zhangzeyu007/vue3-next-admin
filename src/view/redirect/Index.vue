@@ -1,21 +1,31 @@
 <!--
- * @Description: 
+ * @Description: 重定向
  * @Author: 张泽雨
  * @Date: 2022-07-30 13:40:30
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-09-18 12:11:32
+ * @LastEditTime: 2022-09-25 19:47:47
  * @FilePath: \vue3-next-admin\src\view\redirect\Index.vue
 -->
 
-<template>
-	<div>重定向</div>
-  <el-dropdown :split-button="true" >
-    中英文
-    <template #dropdown>
-      <el-dropdown-menu>
-        <el-dropdown-item>Action 1</el-dropdown-item>
-        <el-dropdown-item>Action 2</el-dropdown-item>
-      </el-dropdown-menu>
-    </template>
-  </el-dropdown>
-</template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import { useRoute, useRouter } from "vue-router";
+
+export default defineComponent({
+  created() {
+    const { params, query } = useRoute();
+    const { path } = params;
+    useRouter()
+      .replace({ path: "/" + path, query })
+      .catch((err) => {
+        console.warn(err);
+      });
+  },
+
+  // eslint-disable-next-line vue/require-render-return
+  render() {
+    // Avoid warning for missing template
+  },
+});
+</script>

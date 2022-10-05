@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-07-30 13:10:13
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-09-12 14:41:31
+ * @LastEditTime: 2022-09-25 19:59:45
  * @FilePath: \vue3-next-admin\src\router\index.ts
  */
 
@@ -37,6 +37,23 @@ export const constantRoutes: Array<RouteRecordRaw> = [
 			{
 				path: '/redirect/:path(.*)',
 				component: () => import('@/view/redirect/Index.vue')
+			}
+		]
+	},
+	{
+		path: '/',
+		component: Layout,
+		redirect: '/dashboard',
+		children: [
+			{
+				path: 'dashboard',
+				component: () => import(/* webpackChunkName: "dashboard" */ '@/view/dashboard/Index.vue'),
+				name: 'Dashboard',
+				meta: {
+					title: 'dashboard',
+					icon: '#icondashboard',
+					affix: true
+				}
 			}
 		]
 	},
