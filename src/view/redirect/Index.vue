@@ -3,12 +3,13 @@
  * @Author: 张泽雨
  * @Date: 2022-07-30 13:40:30
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-09-25 19:47:47
+ * @LastEditTime: 2022-10-05 12:35:13
  * @FilePath: \vue3-next-admin\src\view\redirect\Index.vue
 -->
 
 
 <script lang="ts">
+  
 import { defineComponent } from "vue";
 import { useRoute, useRouter } from "vue-router";
 

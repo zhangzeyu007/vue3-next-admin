@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-07-30 13:35:04
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-09-25 19:30:13
+ * @LastEditTime: 2022-10-05 13:27:03
  * @FilePath: \vue3-next-admin\src\layout\Index.vue
 -->
 <template>
@@ -15,13 +15,13 @@
     />
     <div :class="{ hasTagsView: showTagsView }" class="main-container">
       <div :class="{ 'fixed-header': fixedHeader }">
-        <!-- <Navbar />
-        <TagsView v-if="showTagsView" /> -->
+        <Navbar />
+        <TagsView v-if="showTagsView" /> 
       </div>
       <AppMain />
-      <!-- <RightPanel v-if="showSettings"> -->
-        <!-- <Settings /> -->
-      <!-- </RightPanel> -->
+       <RightPanel v-if="showSettings">
+       <Settings />
+       </RightPanel>
     </div>
   </div>
 </template>
@@ -41,12 +41,17 @@ import { useStore } from "@/store";
 import { AppActionTypes } from "@/store/modules/app/action-types";
 import resize from "./resize";
 import { DeviceType } from "@/store/modules/app/state";
-import { AppMain } from "./components";
+import {AppMain, Navbar, Settings, TagsView, Sidebar} from "./components";
 
 export default defineComponent({
+
   name: "Layout",
+  
   components: {
     AppMain,
+    Settings,
+    TagsView,
+    Sidebar
   },
   
   setup() {
@@ -86,6 +91,18 @@ export default defineComponent({
     const fixedHeader = computed(() => {
       return store.state.settings.fixedHeader;
     });
+    watchRouter()
+    onBeforeMount(() => {
+      addEventListenerOnResize()
+    })
+
+    onMounted(() => {
+      resizeMounted()
+    })
+
+    onBeforeUnmount(() => {
+      removeEventListenerResize()
+    })
 
     return {
       t,

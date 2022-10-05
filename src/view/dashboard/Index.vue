@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-09-25 19:54:34
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-09-25 19:54:54
+ * @LastEditTime: 2022-10-05 12:28:58
  * @FilePath: \vue3-next-admin\src\view\dashboard\Index.vue
 -->
 
@@ -26,6 +26,7 @@ export default defineComponent({
     // AdminDashboard,
     // EditorDashboard
   },
+  
   setup() {
     const store = useStore()
     const currentRole = ref('admin-dashboard')
