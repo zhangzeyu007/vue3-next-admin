@@ -3,25 +3,27 @@
  * @Author: 张泽雨
  * @Date: 2022-07-30 13:35:04
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-10-05 13:27:03
+ * @LastEditTime: 2022-10-07 15:47:01
  * @FilePath: \vue3-next-admin\src\layout\Index.vue
 -->
 <template>
   <div :class="classObj" class="app-wrapper">
-    <div
+  <div
       v-if="classObj.mobile && sidebar.opened"
       class="drawer-bg"
       @click="handleClickOutside"
     />
-    <div :class="{ hasTagsView: showTagsView }" class="main-container">
+  <Sidebar class="sidebar-container" />
+  <div :class="{ hasTagsView: showTagsView }" class="main-container">
+
       <div :class="{ 'fixed-header': fixedHeader }">
         <Navbar />
         <TagsView v-if="showTagsView" /> 
       </div>
-      <AppMain />
-       <RightPanel v-if="showSettings">
+      <!-- <AppMain /> -->
+     <RightPanel v-if="showSettings">
        <Settings />
-       </RightPanel>
+    </RightPanel>
     </div>
   </div>
 </template>
@@ -51,7 +53,8 @@ export default defineComponent({
     AppMain,
     Settings,
     TagsView,
-    Sidebar
+    Sidebar,
+    Navbar
   },
   
   setup() {
