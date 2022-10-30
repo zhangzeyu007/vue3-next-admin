@@ -1,9 +1,8 @@
 <!--
  * @Description:
- * @Author: ZY
  * @Date: 2021-01-05 19:11:34
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-10-05 13:30:49
+ * @LastEditTime: 2022-10-30 12:38:05
 -->
 <template>
   <el-scrollbar
@@ -39,7 +38,6 @@ export default defineComponent({
         const tagList = ctx.$parent.$refs.tag as any[]
         let fristTag = null
         let lastTag = null
-
         // find first tag and last tag
         if (tagList.length > 0) {
           fristTag = tagList[0]

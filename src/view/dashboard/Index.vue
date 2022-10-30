@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-09-25 19:54:34
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-10-05 12:28:58
+ * @LastEditTime: 2022-10-30 12:42:58
  * @FilePath: \vue3-next-admin\src\view\dashboard\Index.vue
 -->
 
@@ -18,8 +18,6 @@ import { useStore } from '@/store'
 import { computed, defineComponent, onBeforeMount, ref } from 'vue'
 // import AdminDashboard from './admin/Index.vue'
 // import EditorDashboard from './editor/Index.vue'
-
-
 
 export default defineComponent({
   components: {

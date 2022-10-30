@@ -3,8 +3,8 @@
  * @Author: 张泽雨
  * @Date: 2022-09-12 14:27:32
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-09-12 14:29:01
- * @FilePath: \vue3-next-admin\src\theme\Index.vue
+ * @LastEditTime: 2022-10-30 12:57:43
+ * @FilePath: \vue3-next-admin\src\view\theme\Index.vue
 -->
 <template>
   <div class="app-container">

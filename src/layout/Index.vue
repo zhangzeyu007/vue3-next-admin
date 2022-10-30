@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-07-30 13:35:04
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-10-07 15:47:01
+ * @LastEditTime: 2022-10-30 13:00:59
  * @FilePath: \vue3-next-admin\src\layout\Index.vue
 -->
 <template>
@@ -38,6 +38,8 @@ import {
   onMounted,
   reactive,
 } from "vue";
+
+
 import { useI18n } from "vue-i18n";
 import { useStore } from "@/store";
 import { AppActionTypes } from "@/store/modules/app/action-types";

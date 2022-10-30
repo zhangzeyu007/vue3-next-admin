@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-07-30 13:10:13
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-09-25 19:59:45
+ * @LastEditTime: 2022-10-30 12:40:15
  * @FilePath: \vue3-next-admin\src\router\index.ts
  */
 
@@ -21,6 +21,7 @@ constantFiles.keys().forEach((key) => {
 })
 
 const asyncFiles = require.context('./permissionModules', true, /\.ts$/)
+
 let permissionModules: Array<RouteRecordRaw> = []
 asyncFiles.keys().forEach((key) => {
 	if (key === './index.ts') return
