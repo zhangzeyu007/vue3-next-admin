@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-07-30 13:40:30
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-10-05 12:35:13
+ * @LastEditTime: 2022-10-23 18:59:06
  * @FilePath: \vue3-next-admin\src\view\redirect\Index.vue
 -->
 

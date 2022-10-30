@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-07-30 12:59:21
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-08-28 15:15:02
+ * @LastEditTime: 2022-10-30 12:21:00
  * @FilePath: \vue3-next-admin\src\App.vue
 -->
 
@@ -32,6 +32,7 @@ export default defineComponent({});
   background: #435ebe !important;
   border-radius: 8px !important;
 }
+
 .el-menu-item:hover {
   outline: 0 !important;
   color: #fff !important;
